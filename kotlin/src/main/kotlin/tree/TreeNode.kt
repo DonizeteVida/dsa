@@ -1,5 +1,6 @@
 package com.dsa.kotlin.tree
 
+import com.dsa.kotlin.assertTrue
 import java.util.LinkedList
 
 data class TreeNode(
@@ -29,16 +30,20 @@ fun main() {
         ),
     )
 
-    println(tree)
-
     val ll = LinkedList<TreeNode>()
     ll.push(tree)
 
+    val items = mutableListOf<Int>()
     while (ll.isNotEmpty()) {
         val node = ll.removeFirst()
-        println(node.`val`)
+        items += node.`val`
 
         if (node.left != null) ll.add(node.left)
         if (node.right != null) ll.add(node.right)
     }
+
+    assertTrue(
+        listOf(1, 2, 3, 4, 5, 6, 7),
+        items
+    )
 }
