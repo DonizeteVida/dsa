@@ -2,10 +2,7 @@
 #include <string.h>
 #include <assert.h>
 
-int main(int argc, char const *argv[])
-{
-    char str[] = "Let's take a LeetCode contest!";
-
+static void reverse_each_substring(char* str) {
     int left = 0;
 
     for (int right = 0; right < strlen(str) + 1; right++)
@@ -28,6 +25,13 @@ int main(int argc, char const *argv[])
             left = right + 1;
         }
     }
+}
+
+int main(int argc, char const *argv[])
+{
+    char str[] = "Let's take a LeetCode contest!";
+
+    reverse_each_substring(str);
 
     assert(strcmp(str, "s'teL ekat a edoCteeL !tsetnoc") == 0);
 
